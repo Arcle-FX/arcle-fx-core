@@ -1,0 +1,47 @@
+[profile.default]
+src      = "contracts"
+out      = "out"
+libs     = ["lib"]
+test     = "test"
+script   = "script"
+cache    = true
+optimizer         = true
+optimizer_runs    = 200
+via_ir            = false
+solc_version      = "0.8.24"
+
+# Remappings
+remappings = [
+  "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+]
+
+# Formatter
+[fmt]
+line_length    = 120
+tab_width      = 4
+bracket_spacing = true
+
+# ─── Supported Networks ───────────────────────────────────────────────────────
+#
+#  Network          │ Chain ID  │ Role in ArcleFX
+#  ─────────────────┼───────────┼──────────────────────────────────────────────
+#  Arc Testnet      │ 5042002   │ Swap fees + primary DApp chain
+#  Ethereum Sepolia │ 11155111  │ Bridge source → fee collected here
+#  Arbitrum Sepolia │ 421614    │ Bridge source → fee collected here
+#  Base Sepolia     │ 84532     │ Bridge source → fee collected here
+#
+#  Supported tokens : USDC | EURC | cirBTC
+#  Supported ops    : Bridge (cross-chain) | Swap (on-chain, Arc only)
+#
+[rpc_endpoints]
+arcTestnet      = "${ARC_TESTNET_RPC_URL}"        # https://rpc.testnet.arc.io
+ethSepolia      = "${ETH_SEPOLIA_RPC_URL}"        # https://rpc.sepolia.org
+arbitrumSepolia = "${ARBITRUM_SEPOLIA_RPC_URL}"   # https://sepolia-rollup.arbitrum.io/rpc
+baseSepolia     = "${BASE_SEPOLIA_RPC_URL}"       # https://sepolia.base.org
+
+# ─── Block Explorers ──────────────────────────────────────────────────────────
+[etherscan]
+arcTestnet      = { key = "${ARC_EXPLORER_API_KEY}",  url = "https://testnet.arcscan.app/api" }
+ethSepolia      = { key = "${ETH_EXPLORER_API_KEY}",  url = "https://api-sepolia.etherscan.io/api" }
+arbitrumSepolia = { key = "${ARB_EXPLORER_API_KEY}",  url = "https://api-sepolia.arbiscan.io/api" }
+baseSepolia     = { key = "${BASE_EXPLORER_API_KEY}", url = "https://api-sepolia.basescan.org/api" }

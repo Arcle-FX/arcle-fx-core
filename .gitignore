@@ -1,0 +1,19 @@
+# ─── Foundry build artifacts ─────────────────────────────────────────────────
+out/
+cache/
+
+# ─── Deploy broadcast logs (contains tx hashes — commit if you want history) ──
+broadcast/
+
+# ─── Environment — NEVER commit this ─────────────────────────────────────────
+.env
+
+# ─── Foundry dependencies ─────────────────────────────────────────────────────
+# lib/ klasörü GitHub'a GİTMEZ (büyük, gereksiz)
+# Sadece .gitmodules dosyası gider (birkaç satır referans)
+# Clone eden kişi: forge install → tüm bağımlılıklar yüklenir
+lib/
+
+# ─── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
